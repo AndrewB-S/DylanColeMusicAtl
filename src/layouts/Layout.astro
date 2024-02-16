@@ -1,0 +1,22 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Discover Atlanta-based country artist Dylan Cole, whose debut single 'Stuck in Calabasas' is captivating audiences on streaming platforms. Ideal for any venue or event, from intimate gatherings to large festivals, Dylan offers unforgettable performances with his soulful country melodies and heartfelt lyrics. Book Dylan Cole now for an authentic country music experience that resonates with everyone within earshot." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
