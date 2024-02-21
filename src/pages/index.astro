@@ -25,3 +25,18 @@ import SpotifyWebPlayer from "../components/SpotifyWebPlayer.astro";
     <h2>Contact</h2>
   </section>
 </Layout>
+<script>
+  //External script used for DecapCMS
+  //@ts-ignore
+  if (window.netlifyIdentity) {
+    //@ts-ignore
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        //@ts-ignore
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
