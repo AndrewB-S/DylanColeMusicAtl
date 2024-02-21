@@ -1,13 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SpotifyWebPlayer from '../components/SpotifyWebPlayer.astro';
+import Layout from "../layouts/Layout.astro";
+import SpotifyWebPlayer from "../components/SpotifyWebPlayer.astro";
 ---
 
 <Layout title="Dylan Cole Music">
-	<main>
-		<h1>Welcome to <span class="text-red-500">Astro</span></h1>
-
-		<div>
-		<SpotifyWebPlayer/></div>
-	</main>
+  <main class="flex flex-col items-center">
+    <h1>Welcome to <span class="text-red-500">Astro</span></h1>
+  </main>
+  <section>
+    <h2>About</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque commodi
+      saepe ullam vitae perferendis incidunt unde consectetur nemo
+      necessitatibus consequatur perspiciatis repudiandae voluptate minima
+      libero, ipsum esse? Aperiam, temporibus sit.
+    </p>
+  </section>
+  <section>
+    <div>
+      <SpotifyWebPlayer />
+    </div>
+  </section>
+  <section>
+    <h2>Contact</h2>
+  </section>
 </Layout>

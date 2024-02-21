@@ -11,7 +11,6 @@
       "files": [
         "*.astro"
       ],
-      "processor": "astro/client-side-ts", // <- Uses the "client-side-ts" processor.
       // Allows Astro components to be parsed.
       "parser": "astro-eslint-parser",
       // Parse the script in `.astro` as TypeScript by adding the following configuration.
@@ -22,6 +21,7 @@
           ".astro"
         ]
       },
+      "processor": "astro/client-side-ts", // <- Uses the "client-side-ts" processor.
       "rules": {
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
