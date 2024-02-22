@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import Nav from '@/components/Nav.astro';
 ---
 
 <!doctype html>
@@ -18,28 +20,24 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <script
-      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-      is:inline></script>
+      defer
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script defer>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 
     <title>{title}</title>
   </head>
   <body class="absolute flex flex-col">
-    <div>
+      <Nav />
       <slot />
-    </div>
-    <div id="sideNav" class="bg-gray-500 opacity-75 absolute w-screen h-screen">
-      <h1 class="text-cyan-800">Test</h1>
-    </div>
   </body>
 </html>
-<script is:inline>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>

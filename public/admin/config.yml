@@ -1,27 +1,12 @@
 disableIdentityWidgetInjection: true
 backend:
   name: git-gateway
-  branch: main
+  branch: master
 media_folder: src/assets/images/
 public_folder: _astro/
 collections:
-  - name: drinks
-    label: Drinks
-    folder: src/content/drinks
-    create: true
-    delete: true
-    fields:
-      - name: title
-        widget: string
-        label: Menu Item Name
-      - name: image
-        widget: image
-        label: Image
-      - name: body
-        widget: markdown
-        label: Drink Description
   - name: performances
-    label: Upcoming Performances
+    label: Performances
     folder: src/content/performances
     create: true
     delete: true
@@ -29,6 +14,9 @@ collections:
       - name: title
         widget: string
         label: Performance Title
+      - name: date
+        widget: datetime
+        label: Performance Date
       - name: image
         widget: image
         label: Promotional Image
@@ -36,6 +24,3 @@ collections:
       - name: body
         widget: markdown
         label: Concert Description
-      - name: date
-        widget: datetime
-        label: Performance Date
