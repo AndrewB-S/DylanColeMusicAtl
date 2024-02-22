@@ -1,6 +1,5 @@
 ---
-title: Something
-date: 10-20-1029
+title: Dylan Cole with The Relics
+date: 2024-05-22T20:38:00.000Z
 ---
-
-Promotional Description of the performance if desired.
+We getting freaky
