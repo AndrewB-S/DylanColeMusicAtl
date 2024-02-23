@@ -5,7 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Nav from '@/components/Nav.astro';
+import Nav from "@/components/Nav.astro";
 ---
 
 <!doctype html>
@@ -17,8 +17,13 @@ import Nav from '@/components/Nav.astro';
       content="Discover Atlanta-based country artist Dylan Cole, whose debut single 'Stuck in Calabasas' is captivating audiences on streaming platforms. Ideal for any venue or event, from intimate gatherings to large festivals, Dylan offers unforgettable performances with his soulful country melodies and heartfelt lyrics. Book Dylan Cole now for an authentic country music experience that resonates with everyone within earshot."
     />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       defer
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -36,8 +41,9 @@ import Nav from '@/components/Nav.astro';
 
     <title>{title}</title>
   </head>
-  <body class="absolute flex flex-col">
-      <Nav />
-      <slot />
+  <body>
+    <Nav />
+    <slot />
   </body>
 </html>
+<style is:global></style>
