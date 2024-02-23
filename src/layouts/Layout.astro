@@ -5,7 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Nav from "@/components/Nav.astro";
+import Nav from "../components/molecules/Nav.astro";
 ---
 
 <!doctype html>
@@ -21,9 +21,10 @@ import Nav from "@/components/Nav.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Inter+Tight:ital,wght@0,800;1,800&display=swap"
       rel="stylesheet"
     />
+
     <script
       defer
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -46,4 +47,8 @@ import Nav from "@/components/Nav.astro";
     <slot />
   </body>
 </html>
-<style is:global></style>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

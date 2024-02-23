@@ -67,7 +67,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        'biorhyme': ['biorhyme', 'sans-serif']
+        'biorhyme': ['biorhyme', 'sans-serif'],
+        'bungee': ['Bungee Shade', 'sans-serif']
       }
     },
   },

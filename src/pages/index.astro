@@ -3,29 +3,29 @@ import Layout from "../layouts/Layout.astro";
 import SpotifyWebPlayer from "../components/SpotifyWebPlayer.astro";
 import "@fontsource/biorhyme";
 import "@/styles/globals.css";
-import Hero from "../components/Hero.astro";
-import Contact from "../components/Contact.astro";
-import Performances from "../components/Performances.astro";
-import About from "../components/About.astro";
+import Hero from "../components/molecules/Hero.astro";
+import Contact from "../components/molecules/Contact.astro";
+import Performances from "../components/molecules/Performances.astro";
+import About from "../components/molecules/About.astro";
 import heroBG from "../assets/heroBG.svg";
 import heroBG2 from "../assets/heroBG2.svg";
 ---
 
 <Layout title="Dylan Cole Music">
+  <img
+    src={heroBG.src}
+    alt=""
+    class="absolute object-cover w-screen h-screen -z-10"
+  />
+  <img
+    src={heroBG2.src}
+    alt=""
+    class="absolute object-cover w-screen h-screen mt-[96vh] -z-10"
+  />
   <div class="relative flex flex-col border-none">
-    <img
-      src={heroBG.src}
-      alt=""
-      class="absolute object-cover w-screen h-screen -z-10"
-    />
     <main class="flex flex-col items-center">
       <Hero />
     </main>
-    <img
-      src={heroBG2.src}
-      alt=""
-      class="absolute object-cover w-screen h-screen mt-[96vh] -z-10"
-    />
     <Performances />
   </div>
 

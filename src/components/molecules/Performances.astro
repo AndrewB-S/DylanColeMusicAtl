@@ -1,0 +1,39 @@
+---
+const now = Date.now();
+let performances = await Astro.glob("/src/content/performances/*.md");
+performances = performances
+  .filter((performance) => {
+    let cmsDate: number = new Date(performance.frontmatter.date).getTime();
+    return cmsDate > Date.now();
+  })
+  .sort((a, b) => {
+    const aDate = new Date(a.frontmatter.date).getTime();
+    const bDate = new Date(b.frontmatter.date).getTime();
+    return aDate - bDate;
+  });
+import splatterCurved from "/src/assets/splatterCurved.svg?url";
+import PerformancesTable from "@/components/atoms/PerformancesTable.tsx";
+---
+
+<section
+  id="Performances"
+  class="flex flex-col items-center relative w-[90vw] m-auto rounded py-4"
+>
+  <div
+    class="absolute w-full h-full bg-black opacity-30 border-x-2 border-white"
+  >
+  </div>
+  <h2
+    class="py-4 text-7xl text-primary-foreground drop-shadow-2xl z-10 font-sans tracking-[0.75rem]"
+  >
+    TOUR
+  </h2>
+  <img
+    src={splatterCurved}
+    alt=""
+    class="absolute w-40 -left-16 -mt-16 rotate-45 -z-10"
+  />
+  <ul class="w-full">
+    <PerformancesTable performances={performances} />
+  </ul>
+</section>
