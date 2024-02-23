@@ -8,17 +8,15 @@ import {
 import hamburgerMenuWhite from "/hamburgerMenuWhite.svg?url"
 import closeWhite from "/closeWhite.svg?url"
 
-interface navListItem {
-  title: string;
-  link: string;
-}
-
-interface props {
-  navListItems: navListItem[]
-}
+const navListItems = [
+  { title: "Home", link: "#Home" },
+  { title: "About", link: "#About" },
+  { title: "Tour", link: "#Performances" },
+  { title: "Contact", link: "#Contact" },
+];
 
 
-export default function ToggleNav({ navListItems }: props) {
+export default function ToggleNav() {
 
 
   return (

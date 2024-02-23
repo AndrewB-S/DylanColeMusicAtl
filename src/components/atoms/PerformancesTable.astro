@@ -1,0 +1,69 @@
+---
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+const now = Date.now();
+let performances = await Astro.glob("/src/content/performances/*.md").then(
+  (performances) => {
+    return performances
+      .filter((performance) => {
+        let cmsDate: number = new Date(performance.frontmatter.date).getTime();
+        return cmsDate > now;
+      })
+      .sort((a, b) => {
+        const aDate = new Date(a.frontmatter.date).getTime();
+        const bDate = new Date(b.frontmatter.date).getTime();
+        return aDate - bDate;
+      })
+      .map((performance) => {
+        const newPerformanceObject = {
+          title: performance.frontmatter.title,
+          link: performance.frontmatter.link,
+          description: performance
+            .compiledContent()
+            .split("")
+            .slice(3, -4)
+            .join(""),
+        };
+        return newPerformanceObject;
+      });
+  }
+);
+
+const buttonClasses =
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90";
+---
+
+<Table>
+  <TableCaption className="tracking-widest">UPCOMING PERFORMANCES</TableCaption>
+  <TableBody>
+    {
+      performances.map(
+        (performance: {
+          title: string;
+          description: string;
+          link?: string | URL;
+        }) => {
+          return (
+            <TableRow className="justify-between border-none text-primary-foreground hover:text-black hover:cursor-pointer w-full flex items-center px-4">
+              <TableCell className=" flex flex-col grow max-w-sm">
+                <h3 class="underline text-lg ">{performance.title}</h3>
+                <p>{performance.description}</p>
+              </TableCell>
+
+              <TableCell className={buttonClasses}>
+                <a href={performance.link}>Buy Tickets</a>
+              </TableCell>
+            </TableRow>
+          );
+        }
+      )
+    }
+  </TableBody>
+</Table>
