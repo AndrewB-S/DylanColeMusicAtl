@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import spotifyIcon from "/src/assets/spotify.png";
+import tikTokIcon from "/src/assets/tik-Tok.png";
+import instagramIcon from "/src/assets/instagram.png";
+import appleMusicIcon from "/src/assets/appleMusic.png";
+const spotifyLink =
+  "https://open.spotify.com/artist/6ogY992zLpP452vapcjiIH?si=eh-GFe7NQlC5v45CtjN_Jw";
+const tikTokLink = "https://www.tiktok.com/@dylancolemusic3";
+const instagramLink = "https://www.instagram.com/dylancolemusic_atl/";
+const appleMusicLink =
+  "https://music.apple.com/us/artist/dylan-cole/1717095245";
+
+type icon = {
+  link: string;
+  icon: string;
+  altText: string;
+};
+
+type icons = [icon];
+
+const icons = [
+  {
+    link: spotifyLink,
+    icon: spotifyIcon,
+    altText: "The Spotify Icon",
+  },
+  {
+    link: tikTokLink,
+    icon: tikTokIcon,
+    altText: "The TikTok Icon",
+  },
+  {
+    link: appleMusicLink,
+    icon: appleMusicIcon,
+    altText: "The Apple Music Icon",
+  },
+  {
+    link: instagramLink,
+    icon: instagramIcon,
+    altText: "The Instagram Icon",
+  },
+];
+---
+
+<ul>
+  {
+    icons.map((icon) => {
+      return (
+        <li>
+          <a href={icon.link}>
+            <Image src={icon.icon} alt={icon.altText} width={32} height={32} />
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

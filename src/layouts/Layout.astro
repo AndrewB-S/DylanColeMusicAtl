@@ -5,7 +5,8 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Nav from "../components/molecules/Nav.astro";
+import Nav from "../components/organisms/Nav.astro";
+import Footer from "../components/organisms/Footer.astro";
 ---
 
 <!doctype html>
@@ -45,6 +46,7 @@ import Nav from "../components/molecules/Nav.astro";
   <body>
     <Nav />
     <slot />
+    <Footer />
   </body>
 </html>
 <style>

@@ -24,3 +24,15 @@ collections:
       - name: body
         widget: markdown
         label: Concert Description
+  - name: banner
+    label: Banner 
+    folder: src/content/banner
+    create: false
+    delete: false
+    fields:
+      - name: isBannerActive
+        widget: boolean
+        label: Show the Banner?
+      - name: body
+        widget: markdown
+        label: Banner Message

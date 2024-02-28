@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import "@fontsource/biorhyme";
 import "@/styles/globals.css";
-import Hero from "../components/molecules/Hero.astro";
-import Contact from "../components/molecules/Contact.astro";
-import Performances from "../components/Performances.astro";
+import Hero from "../components/organisms/Hero.astro";
+import Contact from "../components/organisms/Contact.astro";
+import Performances from "../components/organisms/Performances.astro";
 import heroBG from "../assets/heroBG.svg";
 import heroBG2 from "../assets/heroBG2.svg";
 import { Image } from "astro:assets";
@@ -21,7 +21,7 @@ import { Image } from "astro:assets";
     alt=""
     class="absolute object-cover w-screen h-screen mt-[96vh] -z-10"
   />
-  <div class="relative flex flex-col border-none">
+  <div class="flex flex-col">
     <main class="flex flex-col items-center">
       <Hero />
     </main>

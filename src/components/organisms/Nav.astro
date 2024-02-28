@@ -1,0 +1,31 @@
+---
+import ToggleNav from "../molecules/ToggleNav";
+import Logo from "../atoms/Logo.astro";
+import NavListItems from "../atoms/NavListItems.astro";
+import Icons from "../molecules/Icons.astro";
+const isBannerActive = true;
+---
+
+<header class="bg-primary sticky top-0 z-20">
+  <div class="px-4 py-6">
+    <div class="flex justify-between max-w-screen-2xl m-auto">
+      <Logo />
+
+      <nav class="flex items-center">
+        <ToggleNav client:load />
+        <div class="hidden lg:flex">
+          <Icons />
+        </div>
+        <NavListItems />
+      </nav>
+    </div>
+  </div>
+  {
+    isBannerActive && (
+      <aside class="text-center bg-red-700 italic underline px-4 py-2">
+        Check out Dylan's new single "Stuck in Calabasas," out now on all major
+        streaming platforms!
+      </aside>
+    )
+  }
+</header>

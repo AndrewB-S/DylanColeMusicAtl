@@ -1,0 +1,13 @@
+---
+import { getEntry } from "astro:content";
+
+const banner = await getEntry("banner", "banner");
+---
+
+{
+  banner.data.isBannerActive && (
+    <aside class="text-center bg-red-700 italic underline px-4 py-2">
+      {banner.body}
+    </aside>
+  )
+}

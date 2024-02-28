@@ -1,0 +1,25 @@
+---
+const navListItems = [
+  { title: "Home", link: "#Home" },
+  { title: "About", link: "#About" },
+  { title: "Tour", link: "#Performances" },
+  { title: "Contact", link: "#Contact" },
+];
+---
+
+<ul class="hidden lg:flex">
+  {
+    navListItems.map((item) => {
+      return (
+        <li>
+          <a
+            class="px-2 hover:underline underline-offset-8 p-4 text-xl "
+            href={item.link}
+          >
+            {item.title}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
