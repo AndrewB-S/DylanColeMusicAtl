@@ -27,12 +27,12 @@ collections:
   - name: banner
     label: Banner 
     folder: src/content/banner
-    create: true
+    create: false
     delete: false
     fields:
       - name: isBannerActive
         widget: boolean
-        label: Show Banner
+        label: Show the Banner?
       - name: body
         widget: markdown
         label: Banner Message
