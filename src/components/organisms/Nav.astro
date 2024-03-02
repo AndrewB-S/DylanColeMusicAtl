@@ -1,5 +1,6 @@
 ---
 import ToggleNav from "../molecules/ToggleNav";
+import Banner from "../atoms/Banner.astro";
 import Logo from "../atoms/Logo.astro";
 import NavListItems from "../atoms/NavListItems.astro";
 import Icons from "../molecules/Icons.astro";
@@ -12,20 +13,13 @@ const isBannerActive = true;
       <Logo />
 
       <nav class="flex items-center">
-        <ToggleNav client:load />
-        <div class="hidden lg:flex">
+        <div class="hidden lg:block">
           <Icons />
         </div>
         <NavListItems />
+        <ToggleNav client:load />
       </nav>
     </div>
   </div>
-  {
-    isBannerActive && (
-      <aside class="text-center bg-red-700 italic underline px-4 py-2">
-        Check out Dylan's new single "Stuck in Calabasas," out now on all major
-        streaming platforms!
-      </aside>
-    )
-  }
+  <Banner />
 </header>

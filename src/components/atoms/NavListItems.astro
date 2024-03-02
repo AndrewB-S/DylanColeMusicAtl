@@ -7,13 +7,13 @@ const navListItems = [
 ];
 ---
 
-<ul class="hidden lg:flex">
+<ul class="hidden lg:flex ml-8">
   {
     navListItems.map((item) => {
       return (
-        <li>
+        <li class="h-full w-full">
           <a
-            class="px-2 hover:underline underline-offset-8 p-4 text-xl "
+            class="px-2 hover:underline underline-offset-8 p-4 text-xl h-full w-full"
             href={item.link}
           >
             {item.title}

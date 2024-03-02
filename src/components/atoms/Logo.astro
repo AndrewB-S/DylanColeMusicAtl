@@ -3,12 +3,28 @@ import guitarWhite from "/src/assets/guitarWhite.png";
 import { Image } from "astro:assets";
 ---
 
-<div class="flex items-center">
+<div class="flex items-center" id="logo">
   <Image
     src={guitarWhite}
     quality="low"
     alt=""
     class="h-8 lg:h-14 w-8 lg:w-14 -rotate-[30deg]"
   />
-  <h1 class="font-biorhyme text-4xl lg:text-8xl">Dylan Cole</h1>
+  <h1 class="font-biorhyme text-4xl md:text-5xl lg:text-6xl xl:text-8xl">
+    Dylan Cole
+  </h1>
 </div>
+<script>
+  // import noteImage from "/src/assets/musical-note.png";
+  // const logo = document.getElementById("logo");
+  // logo?.addEventListener("click", (e) => {
+  //   e.preventDefault();
+
+  //   const newNote = document.createElement("img");
+  //   newNote.src = noteImage.src;
+  // });
+
+  // Order: create music note on click
+  // Animate the music note by applying a random class from a predetermined set
+  // after the animation timeout has ended, destroy the element
+</script>
