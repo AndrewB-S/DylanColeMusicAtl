@@ -43,13 +43,13 @@ const icons = [
 ];
 ---
 
-<ul class="flex gap-4 place-items-center">
+<ul class="flex items-center gap-4">
   {
     icons.map((icon) => {
       return (
         <li>
           <a href={icon.link}>
-            <Image src={icon.icon} alt={icon.altText} width={48} height={48} />
+            <Image src={icon.icon} alt={icon.altText} width={32} height={32} />
           </a>
         </li>
       );

@@ -2,13 +2,12 @@
 import ToggleNav from "../molecules/ToggleNav";
 import Banner from "../atoms/Banner.astro";
 import Logo from "../atoms/Logo.astro";
-import NavListItems from "../atoms/NavListItems.astro";
 import Icons from "../molecules/Icons.astro";
-const isBannerActive = true;
+import { navListItems } from "../atoms/NavListItems.tsx";
 ---
 
-<header class="bg-primary sticky top-0 z-20">
-  <div class="px-4 py-6">
+<header class="bg-primary sticky top-0 z-20 w-full">
+  <div class="px-4 py-4">
     <div class="flex justify-between max-w-screen-2xl m-auto">
       <Logo />
 
@@ -16,7 +15,23 @@ const isBannerActive = true;
         <div class="hidden lg:block">
           <Icons />
         </div>
-        <NavListItems />
+        <!-- Margin left here due to gap causing the toggle nav to overflow. -->
+        <ul class="hidden lg:flex ml-4">
+          {
+            navListItems.map((item) => {
+              return (
+                <li class="h-full w-full">
+                  <a
+                    class="px-2 hover:text-gray-600 p-4 text-xl h-full w-full uppercase"
+                    href={item.link}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
         <ToggleNav client:load />
       </nav>
     </div>

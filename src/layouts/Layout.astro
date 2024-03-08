@@ -19,12 +19,6 @@ import Footer from "../components/organisms/Footer.astro";
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Inter+Tight:ital,wght@0,800;1,800&display=swap"
-      rel="stylesheet"
-    />
 
     <script
       defer
@@ -43,7 +37,7 @@ import Footer from "../components/organisms/Footer.astro";
 
     <title>{title}</title>
   </head>
-  <body>
+  <body class="flex flex-col items-center">
     <Nav />
     <slot />
     <Footer />

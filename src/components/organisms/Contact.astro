@@ -1,4 +1,75 @@
-<section id="Contact" class="py-20">
-  <h2>Contact</h2>
+---
+import { Button } from "../ui/button";
+import footerBG from "/src/assets/footerBG.svg?url";
+const inputClasses = "p-2 text-primary rounded ";
+---
+
+<section
+  id="Contact"
+  class="py-20 lg:py-48 relative w-full h-full flex flex-col items-center gap-10"
+  style={`background-image: url(${footerBG});background-repeat: no-repeat;background-size:cover;background-position:top`}
+>
+  <div class="flex flex-col gap-6 items-center">
+    <h2 class="text-4xl lg:text-7xl">Contact</h2>
+    <span>To get in touch with Dylan, reach out via the form below.</span>
+  </div>
+
+  <form
+    id="contactForm"
+    action=""
+    method="POST"
+    class="flex flex-col w-[90vw] max-w-screen-sm gap-4"
+  >
+    <label for="name">Name:</label>
+    <input
+      id="name"
+      type="text"
+      placeholder="Name"
+      required
+      class={inputClasses}
+    />
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      type="text"
+      placeholder="Email"
+      required
+      class={inputClasses}
+    />
+    <label for="messageBody">Message:</label>
+    <textarea
+      name="messageBody"
+      id="messageBody"
+      cols="30"
+      rows="6"
+      class={inputClasses + "resize-y"}
+      required
+      placeholder="Get in touch with Dylan"></textarea>
+    <Button
+      size="lg"
+      className={"g-recaptcha " +
+        "hover:bg-[#2d4681] outline outline-1 outline-white"}
+      data-sitekey="6LcmeJEpAAAAAHd7BL5ntxBGTIfWVRRD1obYTQ-Z"
+      data-callback="handleSubmit">Submit</Button
+    >
+  </form>
 </section>
-<script></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  async
+  defer
+></script>
+<script is:inline>
+  import emailjs from "@emailjs/browser";
+  (function () {
+    emailjs.init({
+      publicKey: "3ZlCdEcigYXNcnhye",
+    });
+  })();
+
+  function handleSubmit(token) {
+    document.getElementById("contactForm").submit();
+  }
+</script>

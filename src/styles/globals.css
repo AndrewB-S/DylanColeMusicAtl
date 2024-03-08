@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'alameda';
+  src: url('../assets//fonts/AlamedaScript_PERSONAL_USE_ONLY.otf');
+}
  
 
 @layer base {

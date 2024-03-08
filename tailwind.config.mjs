@@ -12,6 +12,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        "xs": "380px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -67,8 +70,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        'biorhyme': ['biorhyme', 'sans-serif'],
-        'bungee': ['Bungee Shade', 'sans-serif']
+        'alameda': ['alameda', 'sans-serif'],
       }
     },
   },

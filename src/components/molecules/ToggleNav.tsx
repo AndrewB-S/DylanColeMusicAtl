@@ -8,12 +8,14 @@ import {
 import hamburgerMenuWhite from "/hamburgerMenuWhite.svg?url"
 import closeWhite from "/closeWhite.svg?url"
 
-const navListItems = [
-  { title: "Home", link: "#Home" },
-  { title: "About", link: "#About" },
-  { title: "Tour", link: "#Performances" },
-  { title: "Contact", link: "#Contact" },
-];
+import { navListItems } from "../atoms/NavListItems"
+
+// const navListItems = [
+//   { title: "Home", link: "#Home" },
+//   { title: "About", link: "#About" },
+//   { title: "Tour", link: "#Performances" },
+//   { title: "Contact", link: "#Contact" },
+// ];
 
 
 
