@@ -1,5 +1,4 @@
 ---
-import { Button } from "../ui/button";
 import footerBG from "/src/assets/footerBG.svg?url";
 const inputClasses = "p-2 text-primary rounded ";
 const buttonClasses =
@@ -9,7 +8,7 @@ const buttonClasses =
 <section
   id="Contact"
   class="py-20 lg:py-48 relative w-full h-full flex flex-col items-center gap-10"
-  style={`background-image: url(${footerBG});background-repeat: no-repeat;background-size:cover;background-position:top`}
+  style={`background-image: url('${footerBG}');background-repeat: no-repeat;background-size:cover;background-position:top`}
 >
   <div class="flex flex-col gap-6 items-center px-4">
     <h2 class="text-4xl lg:text-7xl">Contact</h2>
@@ -78,7 +77,7 @@ const buttonClasses =
   })();
 
   const form = document.getElementById("contactForm");
-  const captcha = document.querySelector(".g-recaptcha");
+  // const captcha = document.querySelector(".g-recaptcha");
   form.addEventListener("submit", (e) => {
     if (form.checkValidity()) {
       e.preventDefault();
