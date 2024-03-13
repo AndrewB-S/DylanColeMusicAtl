@@ -2,6 +2,8 @@
 import { Button } from "../ui/button";
 import footerBG from "/src/assets/footerBG.svg?url";
 const inputClasses = "p-2 text-primary rounded ";
+const buttonClasses =
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8";
 ---
 
 <section
@@ -9,17 +11,14 @@ const inputClasses = "p-2 text-primary rounded ";
   class="py-20 lg:py-48 relative w-full h-full flex flex-col items-center gap-10"
   style={`background-image: url(${footerBG});background-repeat: no-repeat;background-size:cover;background-position:top`}
 >
-  <div class="flex flex-col gap-6 items-center">
+  <div class="flex flex-col gap-6 items-center px-4">
     <h2 class="text-4xl lg:text-7xl">Contact</h2>
-    <span>To get in touch with Dylan, reach out via the form below.</span>
+    <span class="text-center"
+      >To get in touch with Dylan, reach out via the form below.</span
+    >
   </div>
 
-  <form
-    id="contactForm"
-    action=""
-    method="POST"
-    class="flex flex-col w-[90vw] max-w-screen-sm gap-4"
-  >
+  <form id="contactForm" class="flex flex-col w-[90vw] max-w-screen-sm gap-4">
     <label for="name">Name:</label>
     <input
       id="name"
@@ -31,45 +30,80 @@ const inputClasses = "p-2 text-primary rounded ";
     <label for="email">Email:</label>
     <input
       id="email"
-      type="text"
+      type="email"
       placeholder="Email"
       required
       class={inputClasses}
     />
     <label for="messageBody">Message:</label>
     <textarea
-      name="messageBody"
       id="messageBody"
       cols="30"
       rows="6"
       class={inputClasses + "resize-y"}
       required
       placeholder="Get in touch with Dylan"></textarea>
-    <Button
-      size="lg"
-      className={"g-recaptcha " +
-        "hover:bg-[#2d4681] outline outline-1 outline-white"}
-      data-sitekey="6LcmeJEpAAAAAHd7BL5ntxBGTIfWVRRD1obYTQ-Z"
-      data-callback="handleSubmit">Submit</Button
+    <button
+      id="submitButton"
+      form="contactForm"
+      class={buttonClasses + " w-full"}>Submit</button
     >
   </form>
+
+  <div class="h-[164px] w-[144px]">
+    <div
+      id="recaptcha"
+      class="g-recaptcha"
+      data-sitekey="6LdaYZIpAAAAAKUsMKuazfFbswtxjRx9Qdx3pwml"
+      data-size="compact"
+    >
+    </div>
+  </div>
 </section>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script async src="https://www.google.com/recaptcha/api.js"></script>
 <script
   type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-  async
-  defer
 ></script>
-<script is:inline>
-  import emailjs from "@emailjs/browser";
+<script type="text/javascript" defer>
   (function () {
     emailjs.init({
-      publicKey: "3ZlCdEcigYXNcnhye",
+      publicKey: "OkxGuSCSpok69bgA0",
+      blockHeadless: true,
+      limitRate: {
+        throttle: 30000,
+      },
     });
   })();
 
-  function handleSubmit(token) {
-    document.getElementById("contactForm").submit();
-  }
+  const form = document.getElementById("contactForm");
+  const captcha = document.querySelector(".g-recaptcha");
+  form.addEventListener("submit", (e) => {
+    if (form.checkValidity()) {
+      e.preventDefault();
+      let captchaToken = grecaptcha.getResponse();
+      if (captchaToken == "") {
+        alert("Please complete the captcha to submit.");
+      } else {
+        const templateParams = {
+          from_name: document.getElementById("name").value,
+          user_email: document.getElementById("email").value,
+          message: document.getElementById("messageBody").value,
+          "g-recaptcha-response": captchaToken,
+        };
+
+        emailjs
+          .send("service_0p2kaha", "template_kj3cg2w", templateParams)
+          .then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text);
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+      }
+    }
+  });
 </script>

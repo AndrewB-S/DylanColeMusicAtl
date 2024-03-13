@@ -10,15 +10,6 @@ import closeWhite from "/closeWhite.svg?url"
 
 import { navListItems } from "../atoms/NavListItems"
 
-// const navListItems = [
-//   { title: "Home", link: "#Home" },
-//   { title: "About", link: "#About" },
-//   { title: "Tour", link: "#Performances" },
-//   { title: "Contact", link: "#Contact" },
-// ];
-
-
-
 export default function ToggleNav() {
 
 
@@ -34,7 +25,7 @@ export default function ToggleNav() {
           {
             navListItems.map(item => {
               return (
-                <li className="flex justify-end">
+                <li className="flex justify-end" key={item.title}>
                   <DrawerClose asChild>
                     <a className="rounded p-4 md:p-8 w-full text-primary-foreground underline text-center" href={item.link}>
                       {item.title}

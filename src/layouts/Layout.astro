@@ -21,9 +21,9 @@ import Footer from "../components/organisms/Footer.astro";
     <meta name="generator" content={Astro.generator} />
 
     <script
-      defer
+      async
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script defer>
+    <script async>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
           if (!user) {
@@ -35,6 +35,25 @@ import Footer from "../components/organisms/Footer.astro";
       }
     </script>
 
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
+    <!-- <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script> -->
+
+    <!-- <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "YOUR_PUBLIC_KEY",
+          blockHeadless: true,
+          limitRate: {
+            throttle: 60000,
+          },
+        });
+      })();
+    </script> -->
+
     <title>{title}</title>
   </head>
   <body class="flex flex-col items-center">
@@ -43,8 +62,12 @@ import Footer from "../components/organisms/Footer.astro";
     <Footer />
   </body>
 </html>
-<style>
+<style is:global>
   html {
     scroll-behavior: smooth;
+  }
+
+  .grecaptcha-badge {
+    visibility: hidden;
   }
 </style>
