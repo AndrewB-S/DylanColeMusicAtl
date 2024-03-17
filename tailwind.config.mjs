@@ -71,6 +71,9 @@ export default {
       },
       fontFamily: {
         'alameda': ['alameda', 'sans-serif'],
+      },
+      backgroundImage: {
+        'footer-pattern': "url('/src/assets/footerBG.svg')"
       }
     },
   },

@@ -1,10 +1,16 @@
 ---
 import calabasasPromoImage from "/src/assets/images/IMG_20240222_232152.jpg";
+import { Image } from "astro:assets";
 ---
 
 <main
   class="flex justify-center items-center w-full flex-col relative py-10"
   id="Home"
 >
-  <img src={calabasasPromoImage.src} alt="" />
+  <Image
+    src={calabasasPromoImage}
+    alt="'Stuck in Calabasas' promotional image"
+    densities={[1.5, 2]}
+    width={calabasasPromoImage.width / 2}
+  />
 </main>

@@ -15,7 +15,7 @@ export default function ToggleNav() {
 
   return (
     <Drawer>
-      <DrawerTrigger className="lg:invisible">
+      <DrawerTrigger name="Menu" className="lg:invisible">
         <img src={hamburgerMenuWhite} alt="" />
       </DrawerTrigger>
       <DrawerContent className="items-end bg-primary ml-32 lg:invisible pt-4 font-biorhyme">
