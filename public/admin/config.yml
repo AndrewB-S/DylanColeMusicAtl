@@ -24,6 +24,7 @@ collections:
       - name: body
         widget: markdown
         label: Concert Description
+        required: false
   - name: banner
     label: Banner 
     folder: src/content/banner

@@ -1,16 +1,19 @@
 ---
+import SpotifyWebPlayer from "../atoms/SpotifyWebPlayer.astro";
 import calabasasPromoImage from "/src/assets/images/IMG_20240222_232152.jpg";
 import { Image } from "astro:assets";
 ---
 
 <main
-  class="flex justify-center items-center w-full flex-col relative py-10"
+  class="flex justify-center items-center flex-col relative py-10 max-w-[90vw] gap-8"
   id="Home"
 >
   <Image
     src={calabasasPromoImage}
     alt="'Stuck in Calabasas' promotional image"
-    densities={[1.5, 2]}
-    width={calabasasPromoImage.width / 2}
+    widths={[400, 700]}
+    sizes={`(max-width: 500px) 400px, 700px`}
   />
+
+  <SpotifyWebPlayer />
 </main>

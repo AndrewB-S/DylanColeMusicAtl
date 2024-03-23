@@ -1,13 +1,51 @@
 ---
 import { getEntry } from "astro:content";
+import closeButton from "/src/assets/closeWhite.svg";
+import { Image } from "astro:assets";
 
 const banner = await getEntry("banner", "banner");
 ---
 
 {
   banner.data.isBannerActive && (
-    <aside class="text-center bg-red-700 italic underline px-4 py-2">
-      {banner.body}
-    </aside>
+    <>
+      <aside
+        id="banner"
+        class="text-center bg-red-700 italic underline px-4 py-2 pr-8 relative"
+      >
+        {banner.body}
+        <div class="absolute h-full w-full top-0 left-0 flex items-center justify-end">
+          <Image alt="close the banner" src={closeButton} id="closeButton" />
+        </div>
+      </aside>
+    </>
   )
 }
+
+<script is:inline>
+  //Show the banner, unless the user has closed it and it has been less than a day since it was closed.
+  const banner = document.getElementById("banner");
+  const closeButton = document.getElementById("closeButton");
+  const bannerState = localStorage.getItem("bannerState");
+  const closedDate = localStorage.getItem("closedDate");
+
+  if (bannerState === "closed") {
+    banner.style.display = "none";
+    const dayInMilliseconds = 86400000;
+    const lastClosed = Date.parse(closedDate);
+    const currentDate = Date.now();
+
+    if (currentDate - lastClosed >= dayInMilliseconds) {
+      banner.style.display = "inline-block";
+      localStorage.setItem("bannerState", "open");
+      localStorage.setItem("closedDate", new Date().toISOString());
+    }
+  }
+
+  const closeBanner = () => {
+    banner.style.display = "none";
+    localStorage.setItem("bannerState", "closed");
+    localStorage.setItem("closedDate", new Date().toISOString());
+  };
+  closeButton.addEventListener("click", closeBanner);
+</script>

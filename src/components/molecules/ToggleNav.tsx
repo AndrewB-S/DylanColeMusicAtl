@@ -5,8 +5,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-import hamburgerMenuWhite from "/hamburgerMenuWhite.svg?url"
-import closeWhite from "/closeWhite.svg?url"
+import hamburgerMenuWhite from "/src/assets/hamburgerMenuWhite.svg?url"
+import closeWhite from "/src/assets/closeWhite.svg?url"
 
 import { navListItems } from "../atoms/NavListItems"
 
@@ -18,8 +18,8 @@ export default function ToggleNav() {
       <DrawerTrigger name="Menu" className="lg:invisible">
         <img src={hamburgerMenuWhite} alt="" />
       </DrawerTrigger>
-      <DrawerContent className="items-end bg-primary ml-32 lg:invisible pt-4 font-biorhyme">
-        <DrawerTitle className="w-full p-4 md:p-8 md:text-3xl text-center text-xl text-primary-foreground">Menu</DrawerTitle>
+      <DrawerContent>
+        <DrawerTitle>Menu</DrawerTitle>
         <DrawerClose asChild><img src={closeWhite} alt="" className="absolute pt-2 pr-4" /></DrawerClose>
         <ul className="w-full flex flex-col px-4" aria-label="links">
           {

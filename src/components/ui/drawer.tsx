@@ -42,7 +42,7 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 flex h-screen flex-col bg-background",
+        "fixed inset-x-0 bottom-0 z-50 flex h-screen flex-col items-end bg-primary ml-32 lg:invisible pt-4 font-biorhyme",
         className
       )}
       {...props}
@@ -82,7 +82,7 @@ const DrawerTitle = React.forwardRef<
   <DrawerPrimitive.Title
     ref={ref}
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "font-semibold leading-none tracking-tight w-full p-4 md:p-8 md:text-3xl text-center text-xl text-primary-foreground",
       className
     )}
     {...props}
