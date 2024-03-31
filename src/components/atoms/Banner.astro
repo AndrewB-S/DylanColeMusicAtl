@@ -8,7 +8,7 @@ const banner = await getEntry("banner", "banner");
 
 {
   banner.data.isBannerActive && (
-    <>
+    
       <aside
         id="banner"
         class="text-center bg-red-700 italic underline px-4 py-2 pr-8 relative"
@@ -18,7 +18,7 @@ const banner = await getEntry("banner", "banner");
           <Image alt="close the banner" src={closeButton} id="closeButton" />
         </div>
       </aside>
-    </>
+    
   )
 }
 

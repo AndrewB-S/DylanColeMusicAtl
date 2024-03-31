@@ -1,0 +1,44 @@
+---
+import dylanImage from "/src/assets/images/croppedOnstageSolo.jpg";
+import { Image } from "astro:assets";
+const masonryImageClasses = "h-[25rem] md:h-[35rem] object-cover object-center";
+---
+
+<div
+  class="masonry grid grid-cols-7 md:grid-cols-9 gap-2 md:gap-3 max-w-3xl pt-20 px-2"
+>
+  <!-- Each image container controls the cropping -->
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="hidden md:block overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="hidden md:block overflow-hidden">
+    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+  </div>
+</div>
+
+<style>
+  .masonry > div:nth-child(even) {
+    margin-top: 3em;
+  }
+</style>

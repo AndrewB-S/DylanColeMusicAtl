@@ -9,25 +9,25 @@ import Performances from "../components/organisms/Performances.astro";
 import heroBG from "../assets/heroBG.svg";
 import heroBG2 from "../assets/heroBG2.svg";
 import { Image } from "astro:assets";
+import Masonry from "@/components/molecules/Masonry.astro";
 ---
 
 <Layout title="Dylan Cole Music">
   <Image
     src={heroBG}
     alt=""
-    class="absolute object-cover w-screen h-screen -z-10"
+    class="absolute object-cover w-full h-screen -z-10"
   />
   <Image
     src={heroBG2}
     alt=""
-    class="absolute object-cover w-screen h-screen mt-[100vh] -z-10"
+    class="absolute object-cover w-full mt-[100vh] -z-10"
   />
 
   <Hero />
-
   <About />
   <Performances />
-
+  <Masonry />
   <Contact />
 </Layout>
 <!--End of Content -->

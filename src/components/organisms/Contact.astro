@@ -7,7 +7,7 @@ const buttonClasses =
 
 <section
   id="Contact"
-  class="py-20 lg:py-48 relative w-full h-full flex flex-col items-center gap-10 bg-footer-pattern bg-no-repeat bg-cover bg-top"
+  class="py-20 lg:pb-48 relative w-full h-full flex flex-col items-center gap-10 bg-footer-pattern bg-no-repeat bg-cover bg-top scroll-m-20"
 >
   <div class="flex flex-col gap-6 items-center px-4">
     <h2 class="text-4xl lg:text-7xl">Contact</h2>
@@ -16,7 +16,11 @@ const buttonClasses =
     >
   </div>
 
-  <form id="contactForm" class="flex flex-col w-[90vw] max-w-screen-sm gap-4">
+  <form
+    id="contactForm"
+    class="flex flex-col w-[90vw] max-w-screen-sm gap-4"
+    action="javascript:void(0);"
+  >
     <label for="name">Name:</label>
     <input
       id="name"
@@ -41,11 +45,13 @@ const buttonClasses =
       class={inputClasses + "resize-y"}
       required
       placeholder="Get in touch with Dylan"></textarea>
-    <button
+    <div
       id="submitButton"
-      form="contactForm"
-      class={buttonClasses + " w-full"}>Submit</button
+      aria-label="Submit Button"
+      class={buttonClasses + " w-full"}
     >
+      Submit
+    </div>
   </form>
 
   <div class="h-[164px] w-[144px]">
@@ -59,12 +65,13 @@ const buttonClasses =
   </div>
 </section>
 
-<script async src="https://www.google.com/recaptcha/api.js"></script>
+<script is:inline defer src="https://www.google.com/recaptcha/api.js"></script>
 <script
-  type="text/javascript"
+  is:inline
+  defer
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
 ></script>
-<script type="text/javascript" defer>
+<script is:inline defer>
   (function () {
     emailjs.init({
       publicKey: "OkxGuSCSpok69bgA0",
@@ -76,8 +83,9 @@ const buttonClasses =
   })();
 
   const form = document.getElementById("contactForm");
+  const submitButton = document.getElementById("submitButton");
   // const captcha = document.querySelector(".g-recaptcha");
-  form.addEventListener("submit", (e) => {
+  const handleSubmit = (e) => {
     if (form.checkValidity()) {
       e.preventDefault();
       let captchaToken = grecaptcha.getResponse();
@@ -90,18 +98,27 @@ const buttonClasses =
           message: document.getElementById("messageBody").value,
           "g-recaptcha-response": captchaToken,
         };
+        submitButton.innerText = "Submitting...";
 
         emailjs
           .send("service_0p2kaha", "template_kj3cg2w", templateParams)
           .then(
             (response) => {
-              console.log("SUCCESS!", response.status, response.text);
+              submitButton.innerText = "Submitted";
+              submitButton.style.backgroundColor = "#2e2e2e";
+              form.setAttribute("disabled", true);
+              e.target.removeEventListener("submit", handleSubmit);
             },
             (error) => {
-              console.log(error);
+              submitButton.innerText = "Submit";
+              alert(
+                "Error submitting email. If you just submitted an email, please wait a few seconds and try again."
+              );
             }
           );
       }
     }
-  });
+  };
+  form.addEventListener("submit", handleSubmit);
+  //This should be a react component, but I didn't think it would need to be at first.
 </script>

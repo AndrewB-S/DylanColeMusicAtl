@@ -5,15 +5,13 @@ import { Image } from "astro:assets";
 ---
 
 <main
-  class="flex justify-center items-center flex-col relative py-10 max-w-[90vw] gap-8"
+  class="flex justify-center items-center flex-col relative py-10 max-w-[90vw] gap-8 scroll-m-20"
   id="Home"
 >
   <Image
     src={calabasasPromoImage}
     alt="'Stuck in Calabasas' promotional image"
-    widths={[400, 700]}
-    sizes={`(max-width: 500px) 400px, 700px`}
   />
 
-  <SpotifyWebPlayer />
+  <SpotifyWebPlayer styles="max-w-md" />
 </main>
