@@ -3,7 +3,7 @@ import Icons from "../molecules/Icons.astro";
 import { navListItems } from "../atoms/NavListItems";
 ---
 
-<footer class="flex flex-col items-center gap-4 bg-black w-full py-10">
+<footer class="flex flex-col items-center gap-12 bg-black w-full pt-10 pb-4">
   <div class="flex flex-col items-center gap-6 lg:gap-8">
     <ul class="flex items-center gap-4">
       {
@@ -21,11 +21,13 @@ import { navListItems } from "../atoms/NavListItems";
 
     <Icons />
   </div>
-
-  <small>Website hand-coded by Andrew Sneed</small>
-  <small class="px-4 text-center"
-    >This site is protected by reCAPTCHA and the Google
-    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-    <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small
-  >
+  <div class="flex flex-col text-center">
+    <small>Website hand-coded by Andrew Sneed</small>
+    <small>©2024 Dylan Cole</small>
+    <small class="px-4 text-center"
+      >This site is protected by reCAPTCHA and the Google
+      <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+      <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small
+    >
+  </div>
 </footer>
