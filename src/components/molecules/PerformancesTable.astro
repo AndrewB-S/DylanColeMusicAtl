@@ -35,7 +35,7 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
       10: "November",
       11: "December",
     };
-
+    //Filter by making sure first that the content is in the future. Then sort the entries based on when they happen. Then map the array and build the object you'd like to use to generate your elements.
     return performances
       .filter((performance) => {
         let cmsDate: number = new Date(performance.frontmatter.date).getTime();
@@ -49,24 +49,30 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
       .map((performance) => {
         const frontmatter = performance.frontmatter;
         const currentDate = new Date(frontmatter.date);
-        let day, dayOfWeek, month, year;
+        const startTime = frontmatter.startTime;
+        const endTime = frontmatter.endTime;
+        const title = frontmatter.title;
+        const link = frontmatter.link;
+        const description = performance
+          .compiledContent()
+          .split("")
+          .slice(3, -4)
+          .join("");
+        let day, dayOfWeek, month, year, formattedDate;
 
         day = currentDate.getDate();
         dayOfWeek = dayOfWeekDict[currentDate.getDay()];
         month = monthDict[currentDate.getMonth()];
         year = currentDate.getFullYear();
-
-        const formattedDate = `${dayOfWeek}, ${month} ${day}`;
+        formattedDate = `${dayOfWeek}, ${month} ${day}`;
 
         const newPerformanceObject = {
-          title: frontmatter.title,
+          title: title,
           date: formattedDate,
-          link: frontmatter.link,
-          description: performance
-            .compiledContent()
-            .split("")
-            .slice(3, -4)
-            .join(""),
+          startTime: startTime,
+          endTime: endTime,
+          link: link,
+          description: description,
         };
         return newPerformanceObject;
       });

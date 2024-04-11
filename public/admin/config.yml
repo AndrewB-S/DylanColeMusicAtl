@@ -17,6 +17,14 @@ collections:
       - name: date
         widget: datetime
         label: Performance Date
+      - name: startTime
+        widget: datetime
+        time_format: "h:mma"
+        label: Performance Date
+      - name: endTime
+        widget: datetime
+        time_format: "h:mma"
+        label: Performance Date
       - name: image
         widget: image
         label: Promotional Image
