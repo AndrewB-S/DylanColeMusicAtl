@@ -18,7 +18,7 @@ collections:
         widget: datetime
         date_format: "MMMM:D:YYYY"
         label: Performance Date
-      -name: datetime
+      - name: datetime
         widget: object
         label: Date and Time
         fields:
