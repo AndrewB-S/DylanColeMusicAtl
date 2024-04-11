@@ -27,36 +27,9 @@ export default function ToggleNav() {
 
 
   return (
-    // <Drawer>
-    //   <DrawerTrigger name="Menu" className="lg:invisible">
-    //     <img src={hamburgerMenuWhite} alt="" width={32} height={32} />
-    //   </DrawerTrigger>
-    //   <DrawerContent>
-    //     <DrawerTitle className="font-alameda text-4xl tracking-wide">Menu</DrawerTitle>
-    //     <DrawerClose asChild><img src={closeWhite} alt="Close button" className="absolute pt-2 pr-4" /></DrawerClose>
-    //     <ul className="w-full flex flex-col px-4" aria-label="links">
-    //       {
-    //         navListItems.map(item => {
-    //           return (
-    //             <li className="flex justify-end" key={item.title}>
-
-    //               <a className="rounded p-4 md:p-8 w-full text-primary-foreground underline text-center" href={"#Performances"}>
-    //                 {item.title}
-    //               </a>
-
-    //             </li>
-    //           )
-    //         })
-    //       }
-    //     </ul>
-
-
-
-    //   </DrawerContent>
-    // </Drawer >
     <Sheet>
       <SheetTrigger name="Menu" className="lg:invisible"><img src={hamburgerMenuWhite} alt="" width={32} height={32} /></SheetTrigger>
-      <SheetContent side={"right"} className="bg-primary flex flex-col gap-4">
+      <SheetContent side={"right"} className="bg-primary flex flex-col">
         <SheetClose asChild><img src={closeWhite} alt="Close button" className="absolute top-5 right-5" /></SheetClose>
         <SheetHeader>
           <SheetTitle className="font-alameda text-4xl tracking-wide text-primary-foreground w-full text-center">Menu</SheetTitle>
@@ -76,7 +49,7 @@ export default function ToggleNav() {
             })
           }
         </ul>
-        <div className="flex flex-col place-items-center w-full gap-8 mt-12">
+        <div className="flex flex-col place-items-center w-full gap-8 mt-4">
           <span className="font-alameda text-3xl">Listen</span>
           <ul className="w-full flex px-4 justify-center gap-4">
             {Object.values(streamingServices).map((service, index) => {

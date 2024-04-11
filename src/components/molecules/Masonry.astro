@@ -1,39 +1,52 @@
 ---
-import dylanImage from "/src/assets/images/croppedOnstageSolo.jpg";
+import dylanImage from "/src/assets/images/croppedOnstageSolov2.jpg";
+import image0 from "/src/assets/images/image0Cropped.jpeg";
+import image1 from "/src/assets/images/image1Cropped.jpeg";
+import image2 from "/src/assets/images/image2Cropped.jpeg";
+import image3 from "/src/assets/images/image3Cropped.jpeg";
+import image4 from "/src/assets/images/image4Cropped.jpeg";
+import image5 from "/src/assets/images/image5Cropped.jpeg";
+import image6 from "/src/assets/images/image6Cropped.jpeg";
+import image7 from "/src/assets/images/image7Cropped.jpeg";
+import image8 from "/src/assets/images/image8Cropped.jpeg";
+import image9 from "/src/assets/images/image9Cropped.jpeg";
+import image10 from "/src/assets/images/image10Cropped.jpeg";
+
 import { Image } from "astro:assets";
 const masonryImageClasses = "h-[25rem] md:h-[35rem] object-cover object-center";
 ---
 
 <div
   class="masonry grid grid-cols-7 md:grid-cols-9 gap-2 md:gap-3 max-w-3xl pt-20 px-2"
+  aria-hidden="true"
 >
   <!-- Each image container controls the cropping -->
   <div class="overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+    <Image src={image9} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={image1} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={image8} alt="Dylan" class={masonryImageClasses} />
+  </div>
+  <div class="overflow-hidden">
+    <Image src={image3} alt="Dylan" class={masonryImageClasses} />
   </div>
   <div class="overflow-hidden">
     <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
   </div>
   <div class="overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+    <Image src={image10} alt="Dylan" class={masonryImageClasses} />
   </div>
   <div class="overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
-  </div>
-  <div class="overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
-  </div>
-  <div class="overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
-  </div>
-  <div class="overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+    <Image src={image6} alt="Dylan" class={masonryImageClasses} />
   </div>
   <div class="hidden md:block overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+    <Image src={image7} alt="Dylan" class={masonryImageClasses} />
   </div>
   <div class="hidden md:block overflow-hidden">
-    <Image src={dylanImage} alt="Dylan" class={masonryImageClasses} />
+    <Image src={image2} alt="Dylan" class={masonryImageClasses} />
   </div>
 </div>
 

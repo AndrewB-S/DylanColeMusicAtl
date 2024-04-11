@@ -81,27 +81,35 @@ const buttonClasses =
   <TableCaption className="tracking-widest">UPCOMING LIVE SHOWS</TableCaption>
   <TableBody>
     {
-      performances.map(
-        (performance: {
-          title: string;
-          date: string;
-          description?: string;
-          link?: string | URL;
-        }) => {
-          return (
-            <TableRow className="justify-between border-none text-primary-foreground hover:text-black hover:cursor-pointer w-full flex items-center px-4">
-              <TableCell className=" flex flex-col grow max-w-sm">
-                <h3 class="underline text-lg ">{performance.title}</h3>
-                <span>{performance.date}</span>
-                <p>{performance.description}</p>
-              </TableCell>
+      performances.length === 0 ? (
+        <div class="px-8 py-20 w-full text-center">
+          <span>
+            Check back soon to see where Dylan will be performing next!
+          </span>
+        </div>
+      ) : (
+        performances.map(
+          (performance: {
+            title: string;
+            date: string;
+            description?: string;
+            link?: string | URL;
+          }) => {
+            return (
+              <TableRow className="justify-between border-none text-primary-foreground hover:text-black hover:cursor-pointer w-full flex items-center px-4">
+                <TableCell className=" flex flex-col grow max-w-sm">
+                  <h3 class="underline text-lg ">{performance.title}</h3>
+                  <span>{performance.date}</span>
+                  <p>{performance.description}</p>
+                </TableCell>
 
-              <TableCell className={buttonClasses}>
-                <a href={performance.link}>Buy Tickets</a>
-              </TableCell>
-            </TableRow>
-          );
-        }
+                <TableCell className={buttonClasses}>
+                  <a href={performance.link}>Buy Tickets</a>
+                </TableCell>
+              </TableRow>
+            );
+          }
+        )
       )
     }
   </TableBody>
