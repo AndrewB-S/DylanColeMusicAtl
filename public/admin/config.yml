@@ -16,18 +16,23 @@ collections:
         label: Performance Title
       - name: date
         widget: datetime
+        date_format: "MMMM:D:YYYY"
         label: Performance Date
-      - name: startTime
-        widget: datetime
-        time_format: "h:mma"
-        label: Performance Date
-      - name: endTime
-        widget: datetime
-        time_format: "h:mma"
-        label: Performance Date
-      - name: image
-        widget: image
-        label: Promotional Image
+      -name: datetime
+        widget: object
+        label: Date and Time
+        fields:
+          - name: startTime
+            widget: datetime
+            time_format: "h:mma"
+            label: Performance Start Time
+          - name: endTime
+            widget: datetime
+            time_format: "h:mma"
+            label: Performance End Time
+      - name: isTicketLink
+        widget: boolean
+        label: Show a button with a link
         required: false
       - name: body
         widget: markdown
