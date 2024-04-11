@@ -9,8 +9,8 @@ const buttonClasses =
   id="Contact"
   class="py-20 lg:pb-48 relative w-full h-full flex flex-col items-center gap-10 bg-footer-pattern bg-no-repeat bg-cover bg-top scroll-m-20"
 >
-  <div class="flex flex-col gap-12 items-center px-4">
-    <h2 class="text-5xl lg:text-7xl">Contact</h2>
+  <div class="flex flex-col gap-6 items-center px-4">
+    <h2 class="text-4xl lg:text-7xl">Contact</h2>
     <span class="text-center"
       >To get in touch with Dylan, reach out via the form below.</span
     >
@@ -65,12 +65,12 @@ const buttonClasses =
   </div>
 </section>
 
-<script is:inline defer src="https://www.google.com/recaptcha/api.js"></script>
+<script async src="https://www.google.com/recaptcha/api.js"></script>
 <script
-  is:inline
-  defer
+  type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
->
+></script>
+<script type="text/javascript" defer>
   (function () {
     emailjs.init({
       publicKey: "OkxGuSCSpok69bgA0",
@@ -83,8 +83,8 @@ const buttonClasses =
 
   const form = document.getElementById("contactForm");
   const submitButton = document.getElementById("submitButton");
-  // const captcha = document.querySelector(".g-recaptcha");
-  const handleSubmit = (e) => {
+  submitButton.addEventListener("click", (e) => {
+    console.log("click");
     if (form.checkValidity()) {
       e.preventDefault();
       let captchaToken = grecaptcha.getResponse();
@@ -106,18 +106,19 @@ const buttonClasses =
               submitButton.innerText = "Submitted";
               submitButton.style.backgroundColor = "#2e2e2e";
               form.setAttribute("disabled", true);
-              e.target.removeEventListener("submit", handleSubmit);
+              submitButton.removeEventListener("click");
             },
             (error) => {
               submitButton.innerText = "Submit";
+              submitButton.style.color = "#0F172A";
               alert(
                 "Error submitting email. If you just submitted an email, please wait a few seconds and try again."
               );
             }
           );
       }
+    } else {
+      form.reportValidity();
     }
-  };
-  form.addEventListener("submit", handleSubmit);
-  //This should be a react component, but I didn't think it would need to be at first.
+  });
 </script>
