@@ -1,5 +1,4 @@
 ---
-title: Banner
 isBannerActive: true
 ---
 

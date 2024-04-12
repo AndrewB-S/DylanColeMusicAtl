@@ -16,7 +16,7 @@ collections:
         label: Performance Title
       - name: date
         widget: datetime
-        date_format: "MMMM:D:YYYY"
+        format: "MMMM:D:YYYY"
         label: Performance Date
       - name: datetime
         widget: object
@@ -24,11 +24,11 @@ collections:
         fields:
           - name: startTime
             widget: datetime
-            time_format: "h:mma"
+            format: "h:mma"
             label: Performance Start Time
           - name: endTime
             widget: datetime
-            time_format: "h:mma"
+            format: "h:mma"
             label: Performance End Time
       - name: isTicketLink
         widget: boolean
