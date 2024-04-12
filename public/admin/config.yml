@@ -16,7 +16,7 @@ collections:
         label: Performance Title
       - name: date
         widget: datetime
-        date_format: "MMMM:D:YYYY"
+        date_format: MMMM.D.YYYY
         label: Performance Date
       - name: datetime
         widget: object
@@ -24,11 +24,11 @@ collections:
         fields:
           - name: startTime
             widget: datetime
-            time_format: "h:mma"
+            time_format: h.mma
             label: Performance Start Time
           - name: endTime
             widget: datetime
-            time_format: "h:mma"
+            time_format: h.mma
             label: Performance End Time
       - name: isTicketLink
         widget: boolean
@@ -44,6 +44,9 @@ collections:
     create: false
     delete: false
     fields:
+      - name: title 
+        widget: string
+        label: Banner Title(unused)
       - name: isBannerActive
         widget: boolean
         label: Show the Banner?
