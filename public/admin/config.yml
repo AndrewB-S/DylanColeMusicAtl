@@ -18,9 +18,9 @@ collections:
         widget: datetime
         date_format: MMMM.D.YYYY
         label: Performance Date
-      - name: datetime
+      - name: times
         widget: object
-        label: Date and Time
+        label: Start and End Times
         fields:
           - name: startTime
             widget: datetime
