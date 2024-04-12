@@ -1,8 +1,9 @@
 ---
 title: Dylan Cole at Canton Cigar Company
-date: 2024-04-20T18:00:00.000Z
+date: 4:20:2024
 startTime:
 endTime:
+isTicketLink:
 ---
 
 Test Content

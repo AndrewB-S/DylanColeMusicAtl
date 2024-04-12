@@ -1,6 +1,7 @@
 ---
 title: Dylan Cole at The Standard(Roswell)
-date: 2024-04-21T12:00:00.000Z
+date: 4:21:2024
 startTime:
 endTime:
+isTicketLink:
 ---

@@ -1,6 +1,7 @@
 ---
 title: Dylan Cole at Jack's Public House
-date: 2024-04-26T20:00:00.000Z
+date: 4:26:2024
 startTime:
 endTime:
+isTicketLink:
 ---
