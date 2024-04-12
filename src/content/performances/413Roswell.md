@@ -1,6 +1,6 @@
 ---
 title: Dylan Cole at The Standard
-date: 4:13:2024
+date: April.13.2024
 startTime:
 endTime:
 isTicketLink:
