@@ -22,14 +22,12 @@ collections:
         name: "start"
         widget: "datetime"
         default: ""
-        date_format: MMMM D, YYYY
         time_format: h:mm A
         format: "LT"
       - label: "End time"
         name: "endTime"
         widget: "datetime"
         default: ""
-        date_format: MMMM D, YYYY
         time_format: h:mm A
         format: "LT"
       - name: isTicketLink
