@@ -23,15 +23,13 @@ collections:
         widget: "datetime"
         default: ""
         date_format: false
-        time_format: "HH:mmA"
-        format: "LLL"
+        time_format: "HH:mm A"
       - label: "End time"
         name: "endTime"
         widget: "datetime"
         default: ""
         date_format: false
-        time_format: "HH:mmA"
-        format: "LLL"
+        time_format: "HH:mm A"
       - name: isTicketLink
         widget: boolean
         label: Show a button with a link
