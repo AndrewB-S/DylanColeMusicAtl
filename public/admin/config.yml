@@ -19,15 +19,19 @@ collections:
         date_format: MMMM D, YYYY
         label: Performance Date
       - label: "Start time"
-        name: "startTime"
+        name: "start"
         widget: "datetime"
         default: ""
-        time_format: HH:mm
+        date_format: MMMM D, YYYY
+        time_format: h:mm A
+        format: "LT"
       - label: "End time"
         name: "endTime"
         widget: "datetime"
         default: ""
-        time_format: HH:mm
+        date_format: MMMM D, YYYY
+        time_format: h:mm A
+        format: "LT"
       - name: isTicketLink
         widget: boolean
         label: Show a button with a link
