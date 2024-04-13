@@ -20,11 +20,11 @@ collections:
         label: Performance Date
       - name: startTime
         widget: datetime
-        time_format: HH:mm A
+        time_format: "HH:mm"
         label: Performance Start Time
       - name: endTime
         widget: datetime
-        time_format: HH:mm A
+        time_format: "HH:mm"
         label: Performance End Time
       - name: isTicketLink
         widget: boolean
