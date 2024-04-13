@@ -24,11 +24,11 @@ collections:
         fields:
           - name: startTime
             widget: datetime
-            time_format: h.mm a
+            time_format: hh.mm a
             label: Performance Start Time
           - name: endTime
             widget: datetime
-            time_format: h:mm a
+            time_format: hh:mm a
             label: Performance End Time
       - name: isTicketLink
         widget: boolean
