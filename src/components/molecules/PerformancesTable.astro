@@ -37,9 +37,9 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
 
         const currentDate = new Date(frontmatter.date);
         const startTime = null;
-        //frontmatter.startTime.split("T")[1];
+        //frontmatter.startTime.split("TT")[1];
         const endTime = null;
-        //frontmatter.endTime.split("T")[1];
+        //frontmatter.endTime.split("TT")[1];
         const title = frontmatter.title;
         const link = frontmatter.isTicketLink ? frontmatter.ticketLink : null;
         const description = performance
@@ -92,7 +92,7 @@ const buttonClasses =
             endTime: string | null;
             description?: string;
             isTicketLink: boolean;
-            link?: string | URL;
+            link?: string | URL | null;
           }) => {
             return (
               <TableRow className="justify-between border-none text-primary-foreground hover:text-black hover:cursor-pointer w-full flex items-center px-4">
