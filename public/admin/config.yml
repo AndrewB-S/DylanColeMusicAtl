@@ -16,20 +16,16 @@ collections:
         label: Performance Title
       - name: date
         widget: datetime
-        date_format: MMMM-D-YYYY
+        date_format: MMMM D, YYYY
         label: Performance Date
-      - name: times
-        widget: object
-        label: Start and End Times
-        fields:
-          - name: startTime
-            widget: datetime
-            time_format: hh.mm a
-            label: Performance Start Time
-          - name: endTime
-            widget: datetime
-            time_format: hh:mm a
-            label: Performance End Time
+      - name: startTime
+        widget: datetime
+        time_format: h:mm A
+        label: Performance Start Time
+      - name: endTime
+        widget: datetime
+        time_format: h:mm A
+        label: Performance End Time
       - name: isTicketLink
         widget: boolean
         label: Show a button with a link
