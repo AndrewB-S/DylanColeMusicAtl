@@ -36,10 +36,8 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
         const frontmatter = performance.frontmatter;
 
         const currentDate = new Date(frontmatter.date);
-        const startTime = null;
-        //frontmatter.startTime.split("TT")[1];
-        const endTime = null;
-        //frontmatter.endTime.split("TT")[1];
+        const startTime = frontmatter.startTime.split("TT")[1];
+        const endTime = frontmatter.endTime.split("TT")[1];
         const title = frontmatter.title;
         const link = frontmatter.isTicketLink ? frontmatter.ticketLink : null;
         const description = performance
