@@ -21,20 +21,6 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
       6: "Saturday",
     };
 
-    const monthDict: Record<number, string> = {
-      0: "January",
-      1: "February",
-      2: "March",
-      3: "April",
-      4: "May",
-      5: "June",
-      6: "July",
-      7: "August",
-      8: "September",
-      9: "October",
-      10: "November",
-      11: "December",
-    };
     //Filter by making sure first that the content is in the future. Then sort the entries based on when they happen. Then map the array and build the object you'd like to use to generate your elements.
     return performances
       .filter((performance) => {
@@ -48,11 +34,14 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
       })
       .map((performance) => {
         const frontmatter = performance.frontmatter;
+
         const currentDate = new Date(frontmatter.date);
-        const startTime = frontmatter.startTime;
-        const endTime = frontmatter.endTime;
+        const startTime = null;
+        //frontmatter.startTime.split("T")[1];
+        const endTime = null;
+        //frontmatter.endTime.split("T")[1];
         const title = frontmatter.title;
-        const link = frontmatter.link;
+        const link = frontmatter.isTicketLink ? frontmatter.ticketLink : null;
         const description = performance
           .compiledContent()
           .split("")
@@ -62,15 +51,16 @@ let performances = await Astro.glob("/src/content/performances/*.md").then(
 
         day = currentDate.getDate();
         dayOfWeek = dayOfWeekDict[currentDate.getDay()];
-        month = monthDict[currentDate.getMonth()];
-        year = currentDate.getFullYear();
-        formattedDate = `${dayOfWeek}, ${month} ${day}`;
+        month = frontmatter.date.split(" ")[0];
+        year = frontmatter.date.split(", ")[1];
+        formattedDate = `${dayOfWeek} ${frontmatter.date}`;
 
         const newPerformanceObject = {
           title: title,
           date: formattedDate,
           startTime: startTime,
           endTime: endTime,
+          isTicketLink: frontmatter.isTicketLink,
           link: link,
           description: description,
         };
@@ -98,7 +88,10 @@ const buttonClasses =
           (performance: {
             title: string;
             date: string;
+            startTime: string | null;
+            endTime: string | null;
             description?: string;
+            isTicketLink: boolean;
             link?: string | URL;
           }) => {
             return (
@@ -106,12 +99,16 @@ const buttonClasses =
                 <TableCell className=" flex flex-col grow max-w-sm">
                   <h3 class="underline text-lg ">{performance.title}</h3>
                   <span>{performance.date}</span>
+                  <span>
+                    {performance.startTime} - {performance.endTime}
+                  </span>
                   <p>{performance.description}</p>
                 </TableCell>
-
-                <TableCell className={buttonClasses}>
-                  <a href={performance.link}>More Info</a>
-                </TableCell>
+                {performance.isTicketLink ? (
+                  <TableCell className={buttonClasses}>
+                    <a href={performance.link}>More Info</a>
+                  </TableCell>
+                ) : null}
               </TableRow>
             );
           }
