@@ -22,13 +22,11 @@ collections:
         name: "startTime"
         widget: "datetime"
         default: ""
-        date_format: false
         time_format: HH:mm
       - label: "End time"
         name: "endTime"
         widget: "datetime"
         default: ""
-        date_format: false
         time_format: HH:mm
       - name: isTicketLink
         widget: boolean
