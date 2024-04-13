@@ -7,18 +7,30 @@ const { title } = Astro.props;
 
 import Nav from "../components/organisms/Nav.astro";
 import Footer from "../components/organisms/Footer.astro";
+import favicon from "/src/assets/guitatWhite.png?url";
+import currentPromotionalImage from "/src/assets/images/calabasasPromo.jpg?url";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href={favicon} type="image/png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
       content="Discover Atlanta-based country artist Dylan Cole. Ideal for any venue or event, from intimate gatherings to large festivals, Dylan offers unforgettable performances with his country melodies and heartfelt lyrics. Dylan Cole is an Atlanta-based country artist who blends the classic country sound with a modern twist that listeners of all ages can enjoy."
     />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Dylan Cole" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={currentPromotionalImage} />
+    <meta property="og:url" content="https://www.dylancolemusicatl.com" />
+    <meta
+      property="og:description"
+      content="Dylan Cole is an Atlanta artist bringing a modern twist to the classic country sound that listeners of all backgrounds casn enjoy."
+    />
+    <meta property="og:locale" content="en_US" />
 
     <script
       async
