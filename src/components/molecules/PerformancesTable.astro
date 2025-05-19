@@ -9,63 +9,72 @@ import {
   TableRow,
 } from "@/components/ui/table";
 const now = Date.now();
-let performances = await Astro.glob("/src/content/performances/*.md").then(
-  (performances) => {
-    const dayOfWeekDict: Record<number, string> = {
-      0: "Sunday",
-      1: "Monday",
-      2: "Tuesday",
-      3: "Wednesday",
-      4: "Thursday",
-      5: "Friday",
-      6: "Saturday",
-    };
 
-    //Filter by making sure first that the content is in the future. Then sort the entries based on when they happen. Then map the array and build the object you'd like to use to generate your elements.
-    return performances
-      .filter((performance) => {
-        let cmsDate: number = new Date(performance.frontmatter.date).getTime();
-        return cmsDate > now;
-      })
-      .sort((a, b) => {
-        const aDate = new Date(a.frontmatter.date).getTime();
-        const bDate = new Date(b.frontmatter.date).getTime();
-        return aDate - bDate;
-      })
-      .map((performance) => {
-        const frontmatter = performance.frontmatter;
+let performances: any = [];
 
-        const currentDate = new Date(frontmatter.date);
-        const start = frontmatter.start;
-        const endTime = frontmatter.endTime;
-        const title = frontmatter.title;
-        const link = frontmatter.isTicketLink ? frontmatter.ticketLink : null;
-        const description = performance
-          .compiledContent()
-          .split("")
-          .slice(3, -4)
-          .join("");
-        let day, dayOfWeek, month, year, formattedDate;
+try {
+  performances = await Astro.glob("/src/content/performances/*.md").then(
+    (performances) => {
+      const dayOfWeekDict: Record<number, string> = {
+        0: "Sunday",
+        1: "Monday",
+        2: "Tuesday",
+        3: "Wednesday",
+        4: "Thursday",
+        5: "Friday",
+        6: "Saturday",
+      };
 
-        day = currentDate.getDate();
-        dayOfWeek = dayOfWeekDict[currentDate.getDay()];
-        month = frontmatter.date.split(" ")[0];
-        year = frontmatter.date.split(", ")[1];
-        formattedDate = `${dayOfWeek} ${frontmatter.date}`;
+      //Filter by making sure first that the content is in the future. Then sort the entries based on when they happen. Then map the array and build the object you'd like to use to generate your elements.
+      return performances
+        .filter((performance) => {
+          let cmsDate: number = new Date(
+            performance.frontmatter.date
+          ).getTime();
+          return cmsDate > now;
+        })
+        .sort((a, b) => {
+          const aDate = new Date(a.frontmatter.date).getTime();
+          const bDate = new Date(b.frontmatter.date).getTime();
+          return aDate - bDate;
+        })
+        .map((performance) => {
+          const frontmatter = performance.frontmatter;
 
-        const newPerformanceObject = {
-          title: title,
-          date: formattedDate,
-          start: start,
-          endTime: endTime,
-          isTicketLink: frontmatter.isTicketLink,
-          link: link,
-          description: description,
-        };
-        return newPerformanceObject;
-      });
-  }
-);
+          const currentDate = new Date(frontmatter.date);
+          const start = frontmatter.start;
+          const endTime = frontmatter.endTime;
+          const title = frontmatter.title;
+          const link = frontmatter.isTicketLink ? frontmatter.ticketLink : null;
+          const description = performance
+            .compiledContent()
+            .split("")
+            .slice(3, -4)
+            .join("");
+          let day, dayOfWeek, month, year, formattedDate;
+
+          day = currentDate.getDate();
+          dayOfWeek = dayOfWeekDict[currentDate.getDay()];
+          month = frontmatter.date.split(" ")[0];
+          year = frontmatter.date.split(", ")[1];
+          formattedDate = `${dayOfWeek} ${frontmatter.date}`;
+
+          const newPerformanceObject = {
+            title: title,
+            date: formattedDate,
+            start: start,
+            endTime: endTime,
+            isTicketLink: frontmatter.isTicketLink,
+            link: link,
+            description: description,
+          };
+          return newPerformanceObject;
+        });
+    }
+  );
+} catch (err: any) {
+  console.warn(err.message);
+}
 
 const buttonClasses =
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90";

@@ -1,6 +1,6 @@
 ---
 import SpotifyWebPlayer from "../atoms/SpotifyWebPlayer.astro";
-import calabasasPromoImage from "/src/assets/images/IMG_20240222_232152.jpg";
+import currentPromoImage from "/src/assets/images/fourGoodYearsPromo.png";
 import { Image } from "astro:assets";
 ---
 
@@ -9,8 +9,9 @@ import { Image } from "astro:assets";
   id="Home"
 >
   <Image
-    src={calabasasPromoImage}
+    src={currentPromoImage}
     alt="'Stuck in Calabasas' promotional image"
+    class="w-auto md:max-w-3xl"
   />
 
   <SpotifyWebPlayer styles="max-w-md" />
