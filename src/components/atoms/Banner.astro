@@ -2,8 +2,11 @@
 import { getEntry } from "astro:content";
 import closeButton from "/src/assets/closeWhite.svg";
 import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+import { bundlerModuleNameResolver } from "typescript";
 
-const banner = await getEntry("banner", "banner");
+const banner = await getEntryBySlug("banner", "banner");
+const { Content } = await banner.render();
 ---
 
 {
@@ -12,8 +15,8 @@ const banner = await getEntry("banner", "banner");
       id="banner"
       class="text-center bg-red-700 italic underline px-4 py-2 pr-8 relative -z-10"
     >
-      {banner.body}
-      <div class="absolute h-full w-full top-0 left-0 flex items-center justify-end">
+      <Content />
+      <div class="absolute top-0 right-0 flex items-center justify-end">
         <Image alt="close the banner" src={closeButton} id="closeButton" />
       </div>
     </aside>
